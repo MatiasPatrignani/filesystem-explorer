@@ -18,8 +18,8 @@ $typesAllowed = array('doc', 'csv', 'jpg', 'png', 'txt', 'ppt', 'odt', 'pdf', 'z
 if(in_array($fileActualExt,$typesAllowed,true)) {
   if($fileError === 0) {
     if($fileSize < 500000) {
-      $fileNameNew = uniqid("", true) . "." . $fileActualExt;
-      $fileDestination = "/root/$fileNameNew";
+      // $fileNameNew = uniqid("", true) . "." . $fileActualExt;
+      $fileDestination = "../root/$fileName";
       echo $fileDestination;
       move_uploaded_file($fileTmpName, $fileDestination);
     }
