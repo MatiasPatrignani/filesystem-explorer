@@ -24,6 +24,6 @@ if(in_array($fileActualExt,$typesAllowed,true)) {
   }
 
 } else {
-  echo "You cannot upload";
+   echo "You cannot upload";
 }
 

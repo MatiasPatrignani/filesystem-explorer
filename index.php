@@ -14,9 +14,14 @@
   </head>
   <body>
     <nav>
-      <form action="./root/" method="POST">
-        <input type="text" name="search" />
+      <form action="./modules/search_file.php" method="POST">
+        <input type="text" name="search_file" />Search Folder
       </form>
+      <?php 
+      include
+      './modules/search_file.php';
+      
+      ?>
     </nav>
     <aside>
         <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" >
