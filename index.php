@@ -17,6 +17,8 @@
           <input type="file" name="add_file">
           <button type="submit" name="submit">Add file</button>
         </form>
+        <?php include './modules/view_dir.php';
+        getDirContent("./root/")?>
     </aside>
   </body>
 </html>
