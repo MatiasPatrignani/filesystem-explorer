@@ -4,7 +4,6 @@
 function getDirContent($path){
     $currentPath = $path;
     $dirContents = scandir($currentPath);
-    print_r($dirContents);
 
     foreach($dirContents as $item){
         if($item === '.' || $item === '..'){
