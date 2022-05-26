@@ -26,10 +26,7 @@
                     Browse File <input id="inputFile" type="file" name="add_file" style="display: none;" multiple>
                   </span>
                 </label>
-                        <!-- <input type="file" class="custom-file-input" id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01"> -->
-                <label class="custom-file-label form-control" readonly id="labelFile" for="file">Name file</label>
-                        <!-- <input type="text" class="form-control" readonly> -->
+                <div class="custom-file-label form-control"></div>
                 <button class="btn btn-success" type="submit" name="submit">Add file</button>
               </div>
             </form>
