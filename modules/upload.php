@@ -10,7 +10,6 @@ $fileSize = $_FILES['add_file']['size'];
 $fileError = $_FILES['add_file']['error'];
 $fileType = $_FILES['add_file']['type'];
 
-$fileExt = pathinfo($fileNAme, PATHINFO_FILENAME);
 $fileActualExt = pathinfo($fileName, PATHINFO_EXTENSION);
 
 $typesAllowed = array('doc', 'csv', 'jpg', 'png', 'txt', 'ppt', 'odt', 'pdf', 'zip', 'rar', 'exe', 'svg', 'mp3', 'mp4');
@@ -21,7 +20,7 @@ if(in_array($fileActualExt,$typesAllowed,true)) {
       $fileDestination = "../root/$fileName";
       move_uploaded_file($fileTmpName, $fileDestination);
     }
-  };
+  }
 
 } else {
    echo "You cannot upload";

@@ -1,6 +1,4 @@
-<?php
-  include './modules/view_dir.php';
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,9 +41,9 @@
           </tr>
         </thead>
         <tbody>
-            <?php
-              getDirContent("./root/");
-            ?>
+          <?php
+            include './modules/view_dir.php';
+          ?>
       </table>
     </section>
   </body>

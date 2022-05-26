@@ -1,5 +1,11 @@
 <?php
 
+if (isset($_GET['directory'])) {
+    $path = $_GET['directory'];
+    getDirContent($path);
+} else {
+    getDirContent('./root/');
+}
 
 function getDirContent($path){
     $currentPath = $path; //   ./root/
@@ -11,7 +17,8 @@ function renderContents ($currentPath, $array) {
     foreach($array as $item){
         if($item !== '.' && $item !== '..') {
             if(is_dir("$currentPath/$item")) {
-                echo nl2br("<td class='dir-contents__folder border border-dark bi bi-folder col-5'> $item</div><br>");
+                $newPath = "$currentPath$item/";
+                echo nl2br("<td class='dir-contents__folder border border-dark bi bi-folder col-5'><a href='./index.php?directory=$newPath/' class='w-100'> $item</a></td><br>");
                 echo "<td class='dirContents__folder col-sm text-center'></td>";
                 echo "<td class='dirContents__folder col-sm text-center'></td>";
                 echo "<td class='dirContents__folder col-sm text-center'></td>";
@@ -30,4 +37,8 @@ function renderContents ($currentPath, $array) {
         }
     }
 }
+
+
+
+
 
