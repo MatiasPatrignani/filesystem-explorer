@@ -17,35 +17,36 @@
     <?php
       include './modules/layout/nav.php';
     ?>
-    <div class="col-2">
-      <aside>
-        <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" >
-          <input type="file" name="add_file">
+<!-- INPUT FILE -->
+<div class="col-lg-6 col-sm-6 col-12">
+  <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" >
+      <div class="input-group">
+          <label class="input-group-btn">
+              <span class="btn btn-primary">
+                  Browse File <input type="file" name="add_file" style="display: none;" multiple>
+              </span>
+          </label>
+          <input type="text" class="form-control" readonly>
           <button type="submit" name="submit">Add file</button>
-        </form>
-      </aside>
-    </div>
+      </div>
+  </form>
+</div>
+<!-- TABLE OF FILES -->
     <section class="container col-12">
       <table class="table table-dark w-100">
         <thead>
           <tr>
             <th class="col-sm" scope="col">Name</th>
-            <th class="col-sm" scope="col">Label</th>
-            <th class="col-sm" scope="col">Size</th>
-            <th class="col-sm" scope="col">Modified</th>
+            <th class="col-sm text-center" scope="col">Label</th>
+            <th class="col-sm text-center" scope="col">Size</th>
+            <th class="col-sm text-center" scope="col">Modified</th>
           </tr>
         </thead>
         <tbody>
-            <?php               
+            <?php
               getDirContent("./root/");
-            ?>          
-        </tbody>
-  </table>
+            ?>
+      </table>
     </section>
-    <!-- <nav>
-      <form action="./root/" method="POST">
-      <input type="text" name="search" />
-      </form>
-    </nav> -->
   </body>
 </html>

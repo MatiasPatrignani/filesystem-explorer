@@ -3,7 +3,7 @@
 
 function getDirContent($path){
     $currentPath = $path; //   ./root/
-    $dirContents = scandir($currentPath);  
+    $dirContents = scandir($currentPath);
     renderContents($currentPath, $dirContents);
 }
 

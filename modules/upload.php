@@ -24,5 +24,10 @@ if(in_array($fileActualExt,$typesAllowed,true)) {
   }
 
 } else {
+<<<<<<< Updated upstream
    echo "You cannot upload";
 };
+=======
+  echo "You cannot upload";
+}
+>>>>>>> Stashed changes
