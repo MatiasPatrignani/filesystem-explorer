@@ -17,21 +17,21 @@
     <?php
       include './modules/layout/nav.php';
     ?>
-<!-- INPUT FILE -->
-<div class="col-lg-6 col-sm-6 col-12">
-  <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" >
-      <div class="input-group">
-          <label class="input-group-btn">
-              <span class="btn btn-primary">
-                  Browse File <input type="file" name="add_file" style="display: none;" multiple>
-              </span>
-          </label>
-          <input type="text" class="form-control" readonly>
-          <button type="submit" name="submit">Add file</button>
-      </div>
-  </form>
-</div>
-<!-- TABLE OF FILES -->
+    <!-- INPUT FILE -->
+    <header class="col-lg-6 col-sm-6 col-12">
+      <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" >
+          <div class="input-group">
+              <label class="input-group-btn">
+                  <span class="btn btn-primary">
+                      Browse File <input type="file" name="add_file" style="display: none;" multiple>
+                  </span>
+              </label>
+              <input type="text" class="form-control" readonly>
+              <button type="submit" name="submit">Add file</button>
+          </div>
+      </form>
+    </header>
+    <!-- TABLE OF FILES -->
     <section class="container col-12">
       <table class="table table-dark w-100">
         <thead>
