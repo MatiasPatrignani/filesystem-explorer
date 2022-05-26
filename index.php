@@ -19,7 +19,7 @@
       include './modules/layout/nav.php';
     ?>
     <!-- INPUT FILE -->
-    <header class=" container col-8 mt-3">
+    <header class="container col-8 mt-3">
       <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" >
           <div class="input-group">
               <label class="input-group-btn">
@@ -35,6 +35,17 @@
           </div>
       </form>
     </header>
+    <!-- FILE NAVEGATION -->
+    <div class="d-flex">
+      <section class="container col-4">
+      <div class="file_manager">
+      <ul class="top_buttons"></ul>
+      <ul class="">
+        <li><a>Home Directory</a></li>
+        <li>Test Folder</li>
+      </ul>
+      </div>
+    </section>
     <!-- TABLE OF FILES -->
     <section class="container col-8 mt-3">
       <table class="table table-striped w-100">
@@ -52,5 +63,6 @@
             ?>
       </table>
     </section>
+  </div>
   </body>
 </html>
