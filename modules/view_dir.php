@@ -24,6 +24,12 @@ function sizeFormat($bytes){
     }
 }
 
+if (isset($_GET['directory'])) {
+    $path = $_GET['directory'];
+    getDirContent($path);
+} else {
+    getDirContent('./root/');
+}
 
 function getDirContent($path){
     $currentPath = $path; //   ./root/
@@ -35,10 +41,11 @@ function renderContents ($currentPath, $array) {
     foreach($array as $item){
         if($item !== '.' && $item !== '..') {
             if(is_dir("$currentPath/$item")) {
-                echo nl2br("<div class=' border border-dark bi bi-folder col-5'> $item</div><br>");
-                // echo "<td class='dirContents__folder col-sm text-center'></td>";
-                // echo "<td class='dirContents__folder col-sm text-center'></td>";
-                // echo "<td class='dirContents__folder col-sm text-center'></td>";
+                $newPath = "$currentPath$item/";
+                echo nl2br("<td class='dir-contents__folder border border-dark bi bi-folder col-5'><a href='./index.php?directory=$newPath/' class='w-100'> $item</a></td><br>");
+                echo "<td class='dirContents__folder col-sm text-center'></td>";
+                echo "<td class='dirContents__folder col-sm text-center'></td>";
+                echo "<td class='dirContents__folder col-sm text-center'></td>";
             } else if (is_file("$currentPath/$item")){
                 $fileName = pathinfo($item, PATHINFO_FILENAME);   // gets only filename, removing extension
                 $size = filesize("$currentPath/$item");
@@ -55,4 +62,8 @@ function renderContents ($currentPath, $array) {
         }
     }
 }
+
+
+
+
 
