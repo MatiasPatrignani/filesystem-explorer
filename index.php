@@ -36,11 +36,9 @@
           </tr>
         </thead>
         <tbody>
-            <?php 
-              
+            <?php               
               getDirContent("./root/");
-            ?>
-          
+            ?>          
         </tbody>
   </table>
     </section>
