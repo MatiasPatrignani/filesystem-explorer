@@ -21,13 +21,8 @@ if(in_array($fileActualExt,$typesAllowed,true)) {
       $fileDestination = "../root/$fileName";
       move_uploaded_file($fileTmpName, $fileDestination);
     }
-  }
+  };
 
 } else {
-<<<<<<< Updated upstream
    echo "You cannot upload";
 };
-=======
-  echo "You cannot upload";
-}
->>>>>>> Stashed changes
