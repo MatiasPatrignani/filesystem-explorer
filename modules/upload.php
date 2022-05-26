@@ -2,7 +2,7 @@
 
 if (isset($_POST['submit'])) {
   $file = $_FILES['add_file'];
-}
+};
 
 $fileName = $_FILES['add_file']['name'];
 $fileTmpName = $_FILES['add_file']['tmp_name'];
@@ -10,8 +10,8 @@ $fileSize = $_FILES['add_file']['size'];
 $fileError = $_FILES['add_file']['error'];
 $fileType = $_FILES['add_file']['type'];
 
-$fileExt = explode('.', $fileName);
-$fileActualExt = strtolower((end($fileExt)));
+$fileExt = pathinfo($fileNAme, PATHINFO_FILENAME);
+$fileActualExt = pathinfo($fileName, PATHINFO_EXTENSION);
 
 $typesAllowed = array('doc', 'csv', 'jpg', 'png', 'txt', 'ppt', 'odt', 'pdf', 'zip', 'rar', 'exe', 'svg', 'mp3', 'mp4');
 
@@ -25,6 +25,4 @@ if(in_array($fileActualExt,$typesAllowed,true)) {
 
 } else {
    echo "You cannot upload";
-}
-+
-
+};
