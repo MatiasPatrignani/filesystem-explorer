@@ -1,5 +1,6 @@
 <?php
   include './modules/view_dir.php';
+  include './modules/create_folder.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,14 +27,23 @@
                       Browse File <input type="file" name="add_file" style="display: none;" multiple>
                   </span>
               </label>
-              <input type="text" class="form-control" readonly>
+              <input type="hidden" class="form-control" readonly>
               <button type="submit" name="submit">Add file</button>
           </div>
       </form>
     </header>
-    <!-- TABLE OF FILES -->
     <section class="container col-12">
-      <table class="table table-dark w-100">
+      <strong><?php echo $msg ?></strong>
+    <form action="./modules/create_folder.php" method="POST">
+          <input type="text" name="folder_name">
+      <input type="hidden" value="directory">
+      <input type="submit" value="New folder"></input>
+    </form>
+    <!-- create folder -->
+    <aside d-flex>
+    </aside>
+    <!-- TABLE OF FILES -->
+      <table class="table table-dark w-100 overflow-scroll" >
         <thead>
           <tr>
             <th class="col-sm" scope="col">Name</th>

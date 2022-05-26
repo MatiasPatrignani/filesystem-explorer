@@ -10,7 +10,7 @@ $fileSize = $_FILES['add_file']['size'];
 $fileError = $_FILES['add_file']['error'];
 $fileType = $_FILES['add_file']['type'];
 
-$fileExt = pathinfo($fileNAme, PATHINFO_FILENAME);
+$fileExt = pathinfo($fileName, PATHINFO_FILENAME);
 $fileActualExt = pathinfo($fileName, PATHINFO_EXTENSION);
 
 $typesAllowed = array('doc', 'csv', 'jpg', 'png', 'txt', 'ppt', 'odt', 'pdf', 'zip', 'rar', 'exe', 'svg', 'mp3', 'mp4');
