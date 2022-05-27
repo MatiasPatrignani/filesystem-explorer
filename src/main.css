@@ -1,0 +1,29 @@
+:root {
+  --color-one: #4b4e68;
+  --color-two: #a1e887;
+ 
+}
+
+body {
+  background: #00416A; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #E4E5E6, #00416A); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+.main {
+  border-radius: .5rem;
+  height: 80vh;
+  
+
+}
+
+
+.navbar {
+  border-radius: .5rem .5rem 0 0;
+}
+
+.table__dir {
+  border-radius: .5rem;
+  background-color: hsla(0, 0%, 100%, 0.6);
+}
