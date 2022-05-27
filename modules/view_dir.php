@@ -42,10 +42,12 @@ function renderContents ($currentPath, $array) {
         if($item !== '.' && $item !== '..') {
             if(is_dir("$currentPath/$item")) {
                 $newPath = "$currentPath$item/";
-                echo nl2br("<td class='dir-contents__folder border border-dark bi bi-folder col-5'><a href='./index.php?directory=$newPath/' class='w-100'> $item</a></td><br>");
+                echo "<tr class='row-clickable' data-href='url:./index.php?directory=$newPath/'>";
+                echo "<td class='dir-contents__folder bi bi-folder col-5 clickable-row'><a href='./index.php?directory=$newPath/' class='w-100'> $item</a></td><br>";
                 echo "<td class='dirContents__folder col-sm text-center'></td>";
                 echo "<td class='dirContents__folder col-sm text-center'></td>";
                 echo "<td class='dirContents__folder col-sm text-center'></td>";
+                echo "</tr>";
             } else if (is_file("$currentPath/$item")){
                 $fileName = pathinfo($item, PATHINFO_FILENAME);   // gets only filename, removing extension
                 $size = filesize("$currentPath/$item");

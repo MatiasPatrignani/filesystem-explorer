@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +12,7 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <main class="main m-3">      
+    <main class="main m-3">
         <?php
           include './modules/layout/nav.php';
         ?>
@@ -46,6 +45,7 @@
                   <th class="col-sm text-center" scope="col">Label</th>
                   <th class="col-sm text-center" scope="col">Size</th>
                   <th class="col-sm text-center" scope="col">Modified</th>
+                  <th class="col-sm text-center" scope="col">Create</th>
                 </tr>
               </thead>
               <tbody>
@@ -55,6 +55,5 @@
             </table>
           </section>
     </div>
-    
   </body>
 </html>
