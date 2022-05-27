@@ -1,7 +1,20 @@
 :root {
-  --color-one: #4b4e68;
-  --color-two: #a1e887;
- 
+  --color-one: #00416A;
+  --color-two: #E4E5E6;
+  --color-three: #49bd90;
+  --color-four: #bc5749;
+}
+
+/* .btn__browse {
+  background-color: var(--color-three);
+}
+
+.btn__add-file {
+  background-color: var(--color-four);
+} */
+
+.btn-browse:hover {
+  background-color: var(--color-three);
 }
 
 body {
