@@ -19,10 +19,12 @@
           <!-- INPUT FILE -->
           <header class=" container col-8 mt-5">
             <!-- create folder -->
-            <form action="./modules/create_folder.php" method="POST">
-            <input type="text" name='folder_name'>
-            <button type="submit">New Folder</button>
+            <div class="d-flex">
+              <form action="./modules/create_folder.php" method="POST">
+                  <input type="text" name='folder_name'>
+                  <button type="submit">New Folder</button>
               </form>
+            </div>
               <!-- End create folder -->
             <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" >
               <div class="input-group">
@@ -37,16 +39,16 @@
             </form>
           </header>
               <!-- TABLE OF FILES -->
-          <section class=" container col-8 mt-4">
-            <table class="table__dir table table-striped w-100 bg-white">
+          <section class="tableFixHead table__section container col-8 mt-4">
+            <table class="table__dir table table-striped w-100 bg-white" >
               <thead>
-                <tr>
-                  <th class="col-sm" scope="col">Name</th>
-                  <th class="col-sm text-center" scope="col">Label</th>
-                  <th class="col-sm text-center" scope="col">Size</th>
-                  <th class="col-sm text-center" scope="col">Modified</th>
-                  <th class="col-sm text-center" scope="col">Create</th>
-                </tr>
+                  <tr>
+                    <th class="col-sm" scope="col">Name</th>
+                    <th class="col-sm text-center" scope="col">Label</th>
+                    <th class="col-sm text-center" scope="col">Size</th>
+                    <th class="col-sm text-center" scope="col">Modified</th>
+                    <th class="col-sm text-center" scope="col">Create</th>
+                  </tr>
               </thead>
               <tbody>
                 <?php
