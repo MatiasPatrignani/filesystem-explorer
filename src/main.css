@@ -1,21 +1,31 @@
 :root {
-  --color-one: #4b4e68;
-  --color-two: #a1e887;
- 
+  --color-one: #00416A;
+  --color-two: #E4E5E6;
+  --color-three: #49bd90;
+  --color-four: #bc5749;
+}
+
+/* .btn__browse {
+  background-color: var(--color-three);
+}
+
+.btn__add-file {
+  background-color: var(--color-four);
+} */
+
+.btn-browse:hover {
+  background-color: var(--color-three);
 }
 
 body {
   background: #00416A; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #E4E5E6, #00416A); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
 }
 
 .main {
   border-radius: .5rem;
   height: 80vh;
-  
-
 }
 
 
@@ -28,10 +38,36 @@ body {
   background-color: hsla(0, 0%, 100%, 0.6);
 }
 
-/* .tableFixHead          { overflow: auto; height: 90vh; }
+.tableFixHead          { overflow: auto; height: 70vh; }
 .tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
 
 /* Just common table stuff. Really. */
-/* table  { border-collapse: collapse; width: 100%; }
+table  { border-collapse: collapse; width: 100%; }
 th, td { padding: 8px 16px; }
-th     { background:#eee; } */
+th     { background:#eee; }
+
+.tableFixHead::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.tableFixHead::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.tableFixHead::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+}
+
+.tableFixHead::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.tableFixHead::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.tableFixHead::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
