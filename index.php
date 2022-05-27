@@ -22,12 +22,12 @@
             <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" >
               <div class="input-group">
                 <label class="input-group-btn">
-                  <span class="btn btn-primary">
+                  <span class="btn__browse btn btn-primary">
                     Browse File <input id="inputFile" type="file" name="add_file" style="display: none;" multiple>
                   </span>
                 </label>
                 <div class="custom-file-label form-control"></div>
-                <button class="btn btn-success" type="submit" name="submit">Add file</button>
+                <button class="btn__add-file btn btn-success" type="submit" name="submit">Add file</button>
               </div>
             </form>
           </header>
@@ -46,6 +46,7 @@
                 <?php
                   include './modules/view_dir.php';
                 ?>
+
             </table>
           </section>
     </div>
