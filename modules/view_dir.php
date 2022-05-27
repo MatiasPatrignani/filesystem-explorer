@@ -36,12 +36,15 @@ function getDirContent($path){
 
 function renderContents ($currentPath, $array) {
     foreach($array as $item){
+       
+        $newPath = "$currentPath$item";
         if($item !== '.' && $item !== '..') {
             if(is_dir("$currentPath/$item")) {
-                $newPath = "$currentPath$item/";
+                $ext = 'folder';
                 echo "<tr>";
-                echo "<td class='dir-contents__folder bi bi-folder col-5 clickable-row'><a href='./index.php?directory=$newPath/' class='w-100'> $item</a></td><br>";
-                echo "<td class='dirContents__folder col-sm text-center'></td>";
+                echo "<td class='dir-contents__folder bi bi-folder col-5 clickable-row '>
+                <a href='./index.php?directory=$newPath/' class='w-100 text-decoration-none text-dark'> $item</a></td>";
+                echo "<td class='dirContents__folder col-sm text-center'>$ext</td>";
                 echo "<td class='dirContents__folder col-sm text-center'></td>";
                 echo "<td class='dirContents__folder col-sm text-center'></td>";
                 echo "</tr>";
@@ -53,7 +56,9 @@ function renderContents ($currentPath, $array) {
                 $mod = date("F d Y H:i:s.",filemtime("$currentPath/$item")); // issues with date
                 
                 echo "<tr>";
-                echo "<td class='dirContents__file bi bi-file-earmark col-sm'> $fileName</td>";
+                echo "<td class='dirContents__file bi bi-file-earmark col-sm'>
+                <a href='$newPath' class='w-100 text-decoration-none text-dark'>$fileName</a>
+                </td>";
                 echo "<td class='dirContents__file col-sm text-center'> $ext</td>";
                 echo "<td class='dirContents__file col-sm text-center'> $size</td>";
                 echo "<td class='dirContents__file col-sm text-center'> $mod</td>";
