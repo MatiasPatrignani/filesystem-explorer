@@ -21,6 +21,12 @@
           <header class=" container col-8 mt-5">
             <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" >
               <div class="input-group">
+                  <!-- create folder -->
+              <form action="./modules/create_folder.php" method="POST">
+            <input type="text" name='folder_name'>
+            <button type="submit">New Folder</button>
+              </form>
+              <!-- End create folder -->
                 <label class="input-group-btn">
                   <span class="btn btn-primary">
                     Browse File <input id="inputFile" type="file" name="add_file" style="display: none;" multiple>
