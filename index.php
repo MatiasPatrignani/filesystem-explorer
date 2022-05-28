@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,11 +34,27 @@
                     Browse File <input id="inputFile" type="file" name="add_file" style="display: none;" multiple>
                   </span>
                 </label>
-                <div class="custom-file-label form-control"></div>
+                <div class="custom-file-label form-control">
+                
+                  <?php  
+                    if (isset($_GET['msg'])) {
+                      $msg = $_GET['msg'];
+                      if ($_GET['msg'] === 'pass') {
+                        echo 'Your upload was successful.';
+                      } else if ($_GET['msg'] === 'limit'){
+                        echo 'The file size limit is 500kb.';
+                      } else if ($_GET['msg'] === 'fail') {
+                        echo 'You cannnot upload this file.';
+                      }
+                    }
+                  ?>
+                  
+                </div>
                 <button class="btn__add-file btn btn-success" type="submit" name="submit">Add file</button>
               </div>
             </form>
           </header>
+          
               <!-- TABLE OF FILES -->
           <section class="tableFixHead table__section container col-8 mt-4">
             <table class="table__dir table table-striped w-100 bg-white" >
