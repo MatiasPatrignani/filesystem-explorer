@@ -1,6 +1,7 @@
 <?php
 
 include 'search_file.php';        
+include 'delete.php';
 
 // Set path for directory listing functions
 function getPath () {
@@ -28,6 +29,9 @@ if (isset($_POST['search_file'])) {
     getDirContent('./root/');
 };
 
+
+
+
 function getDirContent($path){
     $currentPath = $path; //   ./root/
     $dirContents = scandir($currentPath);
@@ -38,6 +42,7 @@ function renderContents ($currentPath, $array) {
     foreach($array as $item){
        
         $newPath = "$currentPath$item";
+        
         if($item !== '.' && $item !== '..') {
             if(is_dir("$currentPath/$item")) {
                 $ext = 'folder';
@@ -48,6 +53,12 @@ function renderContents ($currentPath, $array) {
                 echo "<td class='dirContents__folder col-sm text-center'></td>";
                 echo "<td class='dirContents__folder col-sm text-center'></td>";
                 echo "<td class='dirContents__folder col-sm text-center'></td>";
+                echo "<td class='dirContents__file col-sm'>
+                <form method='POST' action='./modules/delete.php'>
+                    <input type='hidden' name='file_delete' value='$newPath' class='w-100 text-decoration-none text-dark'>
+                    <button type='submit' class='btn__delete'><ion-icon name='trash-outline'></ion-icon></button>
+                </form>
+                </td>";
                 echo "</tr>";
             } else if (is_file("$currentPath/$item")){
                 $fileName = pathinfo($item, PATHINFO_FILENAME);   // gets only filename, removing extension
@@ -64,7 +75,16 @@ function renderContents ($currentPath, $array) {
                 echo "<td class='dirContents__file col-sm text-center'> $size</td>";
                 echo "<td class='dirContents__file col-sm text-center'> $mod</td>";
                 echo "<td class='dirContents__file col-sm text-center'> $cre</td>";
+                echo "<td class='dirContents__file col-sm'>
+                <form method='POST' action='./modules/delete.php'>
+                    <input type='hidden' name='file_delete' value='$newPath' class='w-100 text-decoration-none text-dark'>
+                    <button type='submit' class='btn__delete'><ion-icon name='trash-outline'></ion-icon></button>
+                </form>
+                </td>";
                 echo "</tr>";
+                // <a href='index.php?del=$newPath
+                
+
             }
         }
     }
@@ -94,7 +114,6 @@ function sizeFormat($bytes){
     return $bytes . ' B';
     }
 }
-
 
 
 

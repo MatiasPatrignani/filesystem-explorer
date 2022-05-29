@@ -65,6 +65,8 @@
                     <th class="col-sm text-center" scope="col">Size</th>
                     <th class="col-sm text-center" scope="col">Modified</th>
                     <th class="col-sm text-center" scope="col">Create</th>
+                    <th class="col-sm text-center" scope="col">Remove</th>
+
                   </tr>
               </thead>
               <tbody>
@@ -75,5 +77,7 @@
             </table>
           </section>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
