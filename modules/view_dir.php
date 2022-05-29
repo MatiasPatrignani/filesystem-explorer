@@ -38,6 +38,7 @@ function renderContents ($currentPath, $array) {
     foreach($array as $item){
        
         $newPath = "$currentPath$item";
+        
         if($item !== '.' && $item !== '..') {
             if(is_dir("$currentPath/$item")) {
                 $ext = 'folder';
@@ -64,7 +65,12 @@ function renderContents ($currentPath, $array) {
                 echo "<td class='dirContents__file col-sm text-center'> $size</td>";
                 echo "<td class='dirContents__file col-sm text-center'> $mod</td>";
                 echo "<td class='dirContents__file col-sm text-center'> $cre</td>";
+                echo "<td class='dirContents__file  col-sm'>
+                <a href='./delete.php?del=$newPath'; class='w-100 text-decoration-none text-dark'><ion-icon name='trash-outline'></ion-icon></a></td>";
                 echo "</tr>";
+                echo "$newPath";
+                echo "<br>";
+
             }
         }
     }
