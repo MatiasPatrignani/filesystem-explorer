@@ -19,6 +19,7 @@ if(in_array($fileActualExt,$typesAllowed,true)) {
     if($fileSize < 500000) {
       $fileDestination = "../root/$fileName";
       move_uploaded_file($fileTmpName, $fileDestination);
+
     }
   }
 

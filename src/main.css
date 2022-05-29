@@ -99,3 +99,10 @@ th {
   width: "5px";
   height: "5px";
 }
+
+
+.btn__delete {
+  background-color: hsla(0, 0%, 100%, 0);
+  border: none;
+  
+}
