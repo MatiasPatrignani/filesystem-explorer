@@ -13,6 +13,9 @@ function getPath () {
     return $path;
 }
 
+
+
+
 function setDirectory () {
     $path = getPath();
     
@@ -28,13 +31,17 @@ function setDirectory () {
     };
 }
 
+
 function renderContents ($currentPath, $array) {
+    addBreadcrumbs($currentPath, $array);
+
     foreach($array as $item){       
         $newPath = "$currentPath$item";        
         if($item !== '.' && $item !== '..') {
             if(is_dir("$currentPath/$item")) {
-                echo '<br>';
                 $ext = 'folder';
+                $folderArray = [];
+                echo '<br>';
                 echo "<tr>";
                 echo "<td class='dir-contents__folder bi bi-folder col-5 clickable-row '>
                 <a href='./index.php?directory=$newPath/' class='w-100 text-decoration-none text-dark'> $item</a></td>";
@@ -75,6 +82,26 @@ function renderContents ($currentPath, $array) {
         }
     }
 }
+
+function addBreadcrumbs ($currentPath) {
+    ?><nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb"><ol class='breadcrumb'><?php
+
+    $breadcrumbsArray = array();
+    $path = $currentPath;
+   
+    array_unshift($breadcrumbsArray, $path);
+    while (dirname($path) !== '.') {
+        array_unshift($breadcrumbsArray, dirname($path));
+        $path = dirname($path);
+    }
+    foreach($breadcrumbsArray as $item) {
+        $name = pathinfo($item, PATHINFO_FILENAME);
+        echo "<li class='breadcrumb-item'><a href='./index.php?directory=$item'>$name</a></li>";
+    }
+    echo "</ol>";
+    echo "</nav>";
+};
+
 
 function sizeFormat($bytes){
     $kb = 1024;

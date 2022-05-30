@@ -24,7 +24,7 @@
           
           <!-- INPUT FILE -->
           <header class=" container col-8 mt-5 d-flex flex-column">
-            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <!-- <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
               <ol class="breadcrumb">
               
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -32,7 +32,7 @@
                 <li class="breadcrumb-item"><a href="#">Third</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Library</li>
               </ol>
-            </nav>
+            </nav> -->
             <section id="uploadRow" class="upload__row d-flex align-items-center justify-items-center gap-5 mt-3 mb-4">
               <div>
                 <form action="./modules/create_folder.php" method="POST" class="m-auto">
@@ -71,7 +71,7 @@
           </header>
           
               <!-- TABLE OF FILES -->
-          <section class="tableFixHead table__section container col-10 mt-4">
+          <section class="tableFixHead table__section container col-10">
             <table class="table__dir table table-striped bg-white" >
               <thead>
                   <tr>
