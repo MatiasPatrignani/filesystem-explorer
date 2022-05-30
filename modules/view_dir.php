@@ -8,41 +8,37 @@ function getPath () {
     if (isset($_GET['directory'])) {
         $path = $_GET['directory'];
     } else {
-        $path = './root/';
+        $path = './root';
     }
     return $path;
 }
 
-if (isset($_GET['directory'])) {
+
+
+
+function setDirectory () {
     $path = getPath();
-    getDirContent($path);
+    if (isset($_POST['search_file'])) {
+        $fileSearchName = $_POST['search_file'];
+        runSearch($fileSearchName, $path);
+        $resultsArray = runSearch($fileSearchName, $path);
+        listSearchResults($resultsArray);
+        unset($_POST['search_file']);
+    } else {
+        $contents = scandir($path);
+        renderContents($path, $contents);
+    };
 }
 
-if (isset($_POST['search_file'])) {
-        $path = getPath();
-    $fileSearchName = $_POST['search_file'];
-    runSearch($fileSearchName, $path);
-    $resultsArray = runSearch($fileSearchName, $path);
-    listSearchResults($resultsArray);
-    unset($_POST['search_file']);
-} else {
-    getDirContent('./root/');
-};
-
-
-
-
-function getDirContent($path){
-    $currentPath = $path; //   ./root/
-    $dirContents = scandir($currentPath);
-    renderContents($currentPath, $dirContents);
-}
 
 function renderContents ($currentPath, $array) {
+    addBreadcrumbs($currentPath, $array);
+
     foreach($array as $item){
-        $newPath = "$currentPath$item";
+        $newPath = "$currentPath/$item";
         if($item !== '.' && $item !== '..') {
-            if(is_dir("$currentPath/$item")) {
+            if(is_dir($newPath)) {
+                echo $newPath;
                 $ext = 'folder';
                 echo "<tr>";
                 echo "<td class='dir-contents__folder bi bi-folder col-5 clickable-row '>
@@ -58,7 +54,7 @@ function renderContents ($currentPath, $array) {
                 </form>
                 </td>";
                 echo "</tr>";
-            } else if (is_file("$currentPath/$item")){
+            } else if (is_file($newPath)){
                 $fileName = pathinfo($item, PATHINFO_FILENAME);   // gets only filename, removing extension
                 $size = filesize("$currentPath/$item");
                 $size = sizeFormat($size);
@@ -80,11 +76,32 @@ function renderContents ($currentPath, $array) {
                 </form>
                 </td>";
                 echo "</tr>";
-                // <a href='index.php?del=$newPath
             }
         }
     }
 }
+
+function addBreadcrumbs ($currentPath) {
+    ?><nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb"><ol class='breadcrumb'><?php
+
+    $breadcrumbsArray = array();
+    $path = $currentPath;
+
+    array_unshift($breadcrumbsArray, $path);
+    while (dirname($path) !== '.') {
+
+        array_unshift($breadcrumbsArray, dirname($path));
+        $path = dirname($path);
+    }
+    foreach($breadcrumbsArray as $item) {
+
+        $name = pathinfo($item, PATHINFO_FILENAME);
+        echo "<li class='breadcrumb-item'><a href='./index.php?directory=$item'>$name</a></li>";
+    }
+    echo "</ol>";
+    echo "</nav>";
+};
+
 
 function sizeFormat($bytes){
     $kb = 1024;
