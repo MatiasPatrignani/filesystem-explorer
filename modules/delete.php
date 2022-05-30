@@ -10,7 +10,8 @@ if (isset($_POST['file_delete'])) {
     unlink(".$path");
   };
   unset($_POST['file_delete']);
-  header("Location: ../index.php");
+  $refresh = $_GET['directory'];
+  header("Location: ../index.php?$refresh");
 };
 
 

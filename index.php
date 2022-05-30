@@ -1,3 +1,7 @@
+<?php
+  include './modules/view_dir.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,43 +21,53 @@
           include './modules/layout/nav.php';
         ?>
           <!-- INPUT FILE -->
-          <header class=" container col-8 mt-5 d-flex justify-content-around">
-            <!-- create folder -->
-            <div class="mt-3">
-              <form action="./modules/create_folder.php" method="POST">
-                  <input type="text" name='folder_name'>
-                  <button type="submit">New Folder</button>
-              </form>
-            </div>
-              <!-- End create folder -->
-            <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" class="w-50">
-              <div class="input-group ">
-                <label class="input-group-btn">
-                  <span class="btn__browse btn btn-primary">
-                    Browse File <input id="inputFile" type="file" name="add_file" style="display: none;" multiple>
-                  </span>
-                </label>
-                <div class="custom-file-label form-control">
-                  <?php
-                    if (isset($_GET['msg'])) {
-                      $msg = $_GET['msg'];
-                      if ($_GET['msg'] === 'pass') {
-                        echo 'Your upload was successful.';
-                      } else if ($_GET['msg'] === 'limit'){
-                        echo 'The file size limit is 500kb.';
-                      } else if ($_GET['msg'] === 'fail') {
-                        echo 'You cannnot upload this file.';
-                      }
-                    }
-                  ?>
-                </div>
-                <button class="btn__add-file btn btn-success" type="submit" name="submit">Add file</button>
+          <header class=" container col-8 mt-5 d-flex flex-column">
+            <!-- <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Next</a></li>
+                <li class="breadcrumb-item"><a href="#">Third</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+              </ol>
+            </nav> -->
+            <section id="uploadRow" class="upload__row d-flex align-items-center justify-items-center gap-5 mt-3 mb-4">
+              <div>
+                <form action="./modules/create_folder.php" method="POST" class="m-auto">
+                    <input type="text" name='folder_name'>
+                    <button type="submit">New Folder</button>
+                </form>
               </div>
-            </form>
+                <!-- End create folder -->
+              <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" class="w-50 m-auto  d-flex">
+                <div class="input-group">
+                  <label class="input-group-btn">
+                    <span class="btn__browse btn btn-primary">
+                      Browse File <input id="inputFile" type="file" name="add_file" style="display: none;" multiple>
+                    </span>
+                  </label>
+                  <div class="custom-file-label form-control">
+                    <?php
+                      if (isset($_GET['msg'])) {
+                        $msg = $_GET['msg'];
+                        if ($_GET['msg'] === 'pass') {
+                          echo 'Your upload was successful.';
+                        } else if ($_GET['msg'] === 'limit'){
+                          echo 'The file size limit is 500kb.';
+                        } else if ($_GET['msg'] === 'fail') {
+                          echo 'You cannnot upload this file.';
+                        }
+                      }
+                    ?>
+                  </div>
+                  <button class="btn__add-file btn btn-success" type="submit" name="submit">Add file</button>
+                </div>
+              </form>
+            </section>
+            <!-- create folder -->
           </header>
               <!-- TABLE OF FILES -->
-          <section class="tableFixHead table__section container col-8 mt-4">
-            <table class="table__dir table table-striped w-100 bg-white" >
+          <section class="tableFixHead table__section container col-10">
+            <table class="table__dir table table-striped bg-white" >
               <thead>
                   <tr>
                     <th class="col-sm" scope="col">Name</th>
@@ -66,7 +80,7 @@
               </thead>
               <tbody>
                 <?php
-                  include './modules/view_dir.php';
+                setDirectory();
                 ?>
             </table>
           </section>
