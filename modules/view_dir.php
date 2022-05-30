@@ -8,7 +8,7 @@ function getPath () {
     if (isset($_GET['directory'])) {
         $path = $_GET['directory'];
     } else {
-        $path = './root/';
+        $path = './root';
     }
     return $path;
 }
@@ -36,12 +36,11 @@ function renderContents ($currentPath, $array) {
     addBreadcrumbs($currentPath, $array);
 
     foreach($array as $item){       
-        $newPath = "$currentPath$item";        
+        $newPath = "$currentPath/$item";        
         if($item !== '.' && $item !== '..') {
-            if(is_dir("$currentPath/$item")) {
+            if(is_dir($newPath)) {
+                echo $newPath;
                 $ext = 'folder';
-                $folderArray = [];
-                echo '<br>';
                 echo "<tr>";
                 echo "<td class='dir-contents__folder bi bi-folder col-5 clickable-row '>
                 <a href='./index.php?directory=$newPath/' class='w-100 text-decoration-none text-dark'> $item</a></td>";
@@ -56,7 +55,7 @@ function renderContents ($currentPath, $array) {
                 </form>
                 </td>";
                 echo "</tr>";
-            } else if (is_file("$currentPath/$item")){
+            } else if (is_file($newPath)){
                 $fileName = pathinfo($item, PATHINFO_FILENAME);   // gets only filename, removing extension
                 $size = filesize("$currentPath/$item");
                 $size = sizeFormat($size);
@@ -91,12 +90,15 @@ function addBreadcrumbs ($currentPath) {
    
     array_unshift($breadcrumbsArray, $path);
     while (dirname($path) !== '.') {
+
         array_unshift($breadcrumbsArray, dirname($path));
         $path = dirname($path);
     }
     foreach($breadcrumbsArray as $item) {
+
         $name = pathinfo($item, PATHINFO_FILENAME);
         echo "<li class='breadcrumb-item'><a href='./index.php?directory=$item'>$name</a></li>";
+        
     }
     echo "</ol>";
     echo "</nav>";
