@@ -20,13 +20,10 @@
         <?php
           include './modules/layout/nav.php';
         ?>
-
-          
           <!-- INPUT FILE -->
           <header class=" container col-8 mt-5 d-flex flex-column">
             <!-- <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
               <ol class="breadcrumb">
-              
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Next</a></li>
                 <li class="breadcrumb-item"><a href="#">Third</a></li>
@@ -37,7 +34,7 @@
               <div>
                 <form action="./modules/create_folder.php" method="POST" class="m-auto">
                     <input type="text" name='folder_name'>
-                   <button type="submit">New Folder</button>
+                    <button type="submit">New Folder</button>
                 </form>
               </div>
                 <!-- End create folder -->
@@ -48,8 +45,8 @@
                       Browse File <input id="inputFile" type="file" name="add_file" style="display: none;" multiple>
                     </span>
                   </label>
-                  <div class="custom-file-label form-control">         
-                    <?php  
+                  <div class="custom-file-label form-control">
+                    <?php
                       if (isset($_GET['msg'])) {
                         $msg = $_GET['msg'];
                         if ($_GET['msg'] === 'pass') {
@@ -67,9 +64,7 @@
               </form>
             </section>
             <!-- create folder -->
-            
           </header>
-          
               <!-- TABLE OF FILES -->
           <section class="tableFixHead table__section container col-10">
             <table class="table__dir table table-striped bg-white" >
@@ -85,7 +80,7 @@
                   </tr>
               </thead>
               <tbody>
-                <?php                  
+                <?php
                 setDirectory();
                 ?>
 
