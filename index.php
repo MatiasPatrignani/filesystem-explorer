@@ -1,3 +1,6 @@
+<?php
+  include './modules/view_dir.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +26,7 @@
           <header class=" container col-8 mt-5 d-flex flex-column">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
               <ol class="breadcrumb">
+              
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Next</a></li>
                 <li class="breadcrumb-item"><a href="#">Third</a></li>
@@ -81,8 +85,8 @@
                   </tr>
               </thead>
               <tbody>
-                <?php
-                  include './modules/view_dir.php';
+                <?php                  
+                setDirectory();
                 ?>
 
             </table>

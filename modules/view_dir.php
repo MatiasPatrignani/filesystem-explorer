@@ -13,38 +13,27 @@ function getPath () {
     return $path;
 }
 
-if (isset($_GET['directory'])) {
+function setDirectory () {
     $path = getPath();
-    getDirContent($path);
-}
-
-if (isset($_POST['search_file'])) { 
-        $path = getPath();   
-    $fileSearchName = $_POST['search_file'];
-    runSearch($fileSearchName, $path);
-    $resultsArray = runSearch($fileSearchName, $path);
-    listSearchResults($resultsArray);
-    unset($_POST['search_file']);    
-} else {
-    getDirContent('./root/');
-};
-
-
-
-
-function getDirContent($path){
-    $currentPath = $path; //   ./root/
-    $dirContents = scandir($currentPath);
-    renderContents($currentPath, $dirContents);
+    
+    if (isset($_POST['search_file'])) { 
+        $fileSearchName = $_POST['search_file'];
+        runSearch($fileSearchName, $path);
+        $resultsArray = runSearch($fileSearchName, $path);
+        listSearchResults($resultsArray);
+        unset($_POST['search_file']);    
+    } else {
+        $contents = scandir($path);
+        renderContents($path, $contents);
+    };
 }
 
 function renderContents ($currentPath, $array) {
-    foreach($array as $item){
-       
-        $newPath = "$currentPath$item";
-        
+    foreach($array as $item){       
+        $newPath = "$currentPath$item";        
         if($item !== '.' && $item !== '..') {
             if(is_dir("$currentPath/$item")) {
+                echo '<br>';
                 $ext = 'folder';
                 echo "<tr>";
                 echo "<td class='dir-contents__folder bi bi-folder col-5 clickable-row '>
@@ -82,9 +71,6 @@ function renderContents ($currentPath, $array) {
                 </form>
                 </td>";
                 echo "</tr>";
-                // <a href='index.php?del=$newPath
-                
-
             }
         }
     }
