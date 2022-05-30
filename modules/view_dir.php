@@ -45,7 +45,7 @@ function renderContents ($currentPath, $array) {
             if(is_dir("$currentPath/$item")) {
                 $ext = 'folder';
                 echo "<tr>";
-                echo "<td class='dir-contents__folder bi bi-folder col-5 clickable-row '>
+                echo "<td class='dir-contents__folder col-5 clickable-row bi bi-folder'>
                 <a href='./index.php?directory=$newPath/' class='w-100 text-decoration-none text-dark'> $item</a></td>";
                 echo "<td class='dirContents__folder col-sm text-center'>$ext</td>";
                 echo "<td class='dirContents__folder col-sm text-center'></td>";
@@ -65,8 +65,9 @@ function renderContents ($currentPath, $array) {
                 $ext = pathinfo($item, PATHINFO_EXTENSION);
                 $mod = date("F d Y H:i:s.",filemtime("$currentPath/$item")); // issues with date
                 $cre = date("F d Y H:i:s.",filectime("$currentPath/$item")); // issues with date
+                $icon = getIcons($ext);
                 echo "<tr>";
-                echo "<td class='dirContents__file bi bi-file-earmark col-sm'>
+                echo "<td class='dirContents__file col-sm $icon'>
                 <a href='$newPath' class='w-100 text-decoration-none text-dark'>$fileName</a>
                 </td>";
                 echo "<td class='dirContents__file col-sm text-center'> $ext</td>";
@@ -83,6 +84,56 @@ function renderContents ($currentPath, $array) {
                 // <a href='index.php?del=$newPath
             }
         }
+    }
+}
+
+function getIcons($ext){
+    switch($ext){
+        case 'docx':
+            return 'bi bi-file-word';
+            break;
+        case 'pdf':
+            return 'bi bi-filetype-pdf';
+            break;
+        case 'png':
+            return 'bi bi-image';
+            break;
+        case 'jpg':
+            return 'bi bi-image';
+            break;
+        case 'txt':
+            return 'i bi-file-text';
+            break;
+        case 'doc':
+            return 'bi bi-file-word';
+            break;
+        case 'csv';
+            return "bi bi-filetype-csv";
+            break;
+        case 'ppt':
+            return "bi bi-filetype-ppt";
+            break;
+        case 'odt':
+            return "bi bi-file-text";
+            break;
+        case 'zip':
+            return "bi bi-file-earmark-zip";
+            break;
+        case 'rar':
+            return "bi bi-file-earmark-zip";
+            break;
+        case 'exe':
+            return "bi bi-filetype-exe";
+            break;
+        case 'svg':
+            return "bi bi-filetype-svg";
+            break;
+        case 'mp3':
+            return "bi bi-filetype-mp3";
+            break;
+        case 'mp4':
+            return "bi bi-filetype-mp4";
+            break;
     }
 }
 

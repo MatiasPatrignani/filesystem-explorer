@@ -29,7 +29,7 @@ function listSearchResults ($array) {
                 <td class='dirContents__folder col-sm text-center'></td>
                 </tr>
             <?php
-        } elseif (is_file($item)) {
+        } else if (is_file($item)) {
             $fileName = pathinfo($item, PATHINFO_FILENAME);   // gets only filename, removing extension
             $ext = pathinfo($item, PATHINFO_EXTENSION);
             ?>

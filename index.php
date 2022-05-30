@@ -17,7 +17,7 @@
           include './modules/layout/nav.php';
         ?>
           <!-- INPUT FILE -->
-          <header class=" container col-8 mt-5">
+          <header class=" container col-8 mt-5 d-flex justify-content-around">
             <!-- create folder -->
             <div class="mt-3">
               <form action="./modules/create_folder.php" method="POST">
@@ -26,8 +26,8 @@
               </form>
             </div>
               <!-- End create folder -->
-            <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" >
-              <div class="input-group">
+            <form action="./modules/upload.php" method="POST" enctype="multipart/form-data" class="w-50">
+              <div class="input-group ">
                 <label class="input-group-btn">
                   <span class="btn__browse btn btn-primary">
                     Browse File <input id="inputFile" type="file" name="add_file" style="display: none;" multiple>

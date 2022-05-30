@@ -12,7 +12,6 @@ if (isset($_POST['file_delete'])) {
   unset($_POST['file_delete']);
   header("Location: ../index.php");
 };
-  
 
 
 function recursiveDelete($path) {
@@ -28,7 +27,4 @@ function recursiveDelete($path) {
       return @rmdir($str);
   }
 }
-
-
-
 ?>
