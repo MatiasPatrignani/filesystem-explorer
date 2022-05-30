@@ -1,6 +1,6 @@
 <?php
 
-include 'search_file.php';        
+include 'search_file.php';
 include 'delete.php';
 
 // Set path for directory listing functions
@@ -18,13 +18,13 @@ if (isset($_GET['directory'])) {
     getDirContent($path);
 }
 
-if (isset($_POST['search_file'])) { 
-        $path = getPath();   
+if (isset($_POST['search_file'])) {
+        $path = getPath();
     $fileSearchName = $_POST['search_file'];
     runSearch($fileSearchName, $path);
     $resultsArray = runSearch($fileSearchName, $path);
     listSearchResults($resultsArray);
-    unset($_POST['search_file']);    
+    unset($_POST['search_file']);
 } else {
     getDirContent('./root/');
 };
@@ -40,9 +40,7 @@ function getDirContent($path){
 
 function renderContents ($currentPath, $array) {
     foreach($array as $item){
-       
         $newPath = "$currentPath$item";
-        
         if($item !== '.' && $item !== '..') {
             if(is_dir("$currentPath/$item")) {
                 $ext = 'folder';
@@ -83,8 +81,6 @@ function renderContents ($currentPath, $array) {
                 </td>";
                 echo "</tr>";
                 // <a href='index.php?del=$newPath
-                
-
             }
         }
     }
