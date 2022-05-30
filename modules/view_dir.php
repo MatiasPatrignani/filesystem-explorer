@@ -38,7 +38,6 @@ function renderContents ($currentPath, $array) {
         $newPath = "$currentPath/$item";
         if($item !== '.' && $item !== '..') {
             if(is_dir($newPath)) {
-                echo $newPath;
                 $ext = 'folder';
                 echo "<tr>";
                 echo "<td class='dir-contents__folder col-5 clickable-row bi bi-folder'>

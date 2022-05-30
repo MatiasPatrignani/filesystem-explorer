@@ -34,7 +34,7 @@
               <div>
                 <form action="./modules/create_folder.php" method="POST" class="m-auto">
                     <input type="text" name='folder_name'>
-                    <button type="submit">New Folder</button>
+                    <button type="submit" class="btn btn-success">New Folder</button>
                 </form>
               </div>
                 <!-- End create folder -->
