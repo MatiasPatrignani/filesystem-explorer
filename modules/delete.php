@@ -18,14 +18,14 @@ if (isset($_POST['file_delete'])) {
 function recursiveDelete($path) {
   $str = ".$path";
   if (is_file($str)) {
-      return @unlink($str);
+      return unlink($str);
   }
   elseif (is_dir($str)) {
       $scan = glob(rtrim($str,'/').'/*');
       foreach($scan as $index=>$path) {
           recursiveDelete($path);
       }
-      return @rmdir($str);
+      return rmdir($str);
   }
 }
 ?>

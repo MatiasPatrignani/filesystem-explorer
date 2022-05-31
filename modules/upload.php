@@ -18,10 +18,19 @@ if(in_array($fileActualExt,$typesAllowed,true)) {
   if($fileError === 0) {
     if($fileSize < 500000) {
       $fileDestination = "../root/$fileName";
-      move_uploaded_file($fileTmpName, $fileDestination);
+      move_uploaded_file($fileTmpName, $fileDestination);  
+      $msg = 'pass';
+      header("Location:../index.php?msg=$msg");
+      unset($_GET['msg']);
+    } else {
+    $msg = 'limit';
+    header("Location:../index.php?msg=$msg");
+    unset($_GET['msg']);
     }
+  } else { 
+    $msg = 'fail';
+    header("Location:../index.php?msg=$msg");
+    unset($_GET['msg']);
   }
-} else {
-  echo "You cannot upload";
-}
+};
 
