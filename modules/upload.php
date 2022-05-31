@@ -20,17 +20,14 @@ if(in_array($fileActualExt,$typesAllowed,true)) {
       $fileDestination = "../root/$fileName";
       move_uploaded_file($fileTmpName, $fileDestination);  
       $msg = 'pass';
-      header("Location:../index.php?msg=$msg");
-      unset($_GET['msg']);
+      header("Location:../index.php?msg=$msg");  
     } else {
     $msg = 'limit';
     header("Location:../index.php?msg=$msg");
-    unset($_GET['msg']);
     }
   } else { 
     $msg = 'fail';
     header("Location:../index.php?msg=$msg");
-    unset($_GET['msg']);
   }
 };
 
